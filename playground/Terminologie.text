@@ -1,0 +1,14 @@
+argv
+
+It refers to the “argument vector,” which is basically a variable that contains the arguments passed to a program through the command line. 
+It typically manifests as an array and can be manipulated in that way, 
+meaning you can reference specific arguments by index or you can iterate through them in the standard ways.
+(https://flatironschool.com/blog/a-short-explanation-of-argv)
+
+
+builder:
+Here we add options
+
+yargs.command{
+    builder:{}
+}
