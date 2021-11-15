@@ -12,3 +12,7 @@ Here we add options
 yargs.command{
     builder:{}
 }
+
+prosess
+
+prosess gives you variouse properties and methods to manipulate the node prosess that´s running .Process is an object
