@@ -1,0 +1,48 @@
+You can serve up static HTML documents with Express, Do this by creating an index.html in the public folder
+
+OR
+
+You can serve up dynamic web pages with Handelbar
+
+In the root of the project create a folder called viues
+
+Express expects all of your Viues ex.Handlebars templates  to live in viues folder 
+
+You can make a Viue that creates the Home page with a Handle bars template
+inside of Views foalder create a file index.hbs
+
+
+
+
+WE can inject a value in a hbs file insied dubbel curly brases {{}}
+
+
+You can only have one res in a function, 
+by adding the return key word we pause the function and the seconnd res is not sent
+
+
+app.get('/products',(req,res)=>{
+    if(!req.query.serch){
+       return res.send({
+            error:'Please add a search'})
+    }
+    console.log(req.query)
+    res.send({
+        products: []
+    })
+})
+
+
+
+
+req.query
+
+This property is an object containing a property for each query string parameter in the route
+
+query is the additional info we added in the browser after products/
+ http://localhost:3000/products?serch=games&reating=5
+
+
+ What is end point?
+ ".. a web service endpoint is a web address (URL) at which customers of a specific service can gain access to it"
+ https://www.biztalk360.com/blog/web-endpoint-monitoring-biztalk360/

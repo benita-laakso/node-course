@@ -1,0 +1,24 @@
+Partials with Handlebars 
+Alows you to create a template, that is paret of a bigger webpage
+A part that will be used across multiple pages on your site ex.Header or Footers
+
+In partial file you dont need to create a HTML document you can simply write HTML elements ex header.hbs file
+
+
+
+Loding in ythe module
+const hbs = hbs
+
+res.send()   - Printing your string from app to the Screen 
+
+app.get('*', (req,res)=>{
+    res.send('My 404')
+})
+
+res.get()   - Printing your hbs page to the Screen 
+
+app.get('*', (req,res)=>{
+    res.render('404',{
+        errorMessage:"Somthing went wrong"
+    })
+})
