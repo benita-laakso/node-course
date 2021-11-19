@@ -1,0 +1,36 @@
+// Fetch Api is not acessable in Node.js or back end but it is acsessable in Client side Js
+
+fetch("http://puzzle.mead.io/puzzle")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+fetch("http://puzzle.mead.io/puzzle").then((response) => {
+  response.json().then((data) => {
+    console.log(data);
+  });
+});
+
+
+
+//1.Set up URL in fetch()   
+//- fetch('http://localhost:3000/weather?address=boston')
+//2. Use then to set up callback function, we provide the function to run when fetch is all done, we have acsess to response
+//.then((response)=>
+//3. Use the JSON method on responce  
+//response.json()  -Giving us back parsed data
+//4 .then(data)    -   Acsessing data when response is done   
+
+
+fetch('http://localhost:3000/weather?address=boston').then((response)=>{
+    response.json().then((data)=>{
+        if (data.error){
+            console.log(data.error)
+        }
+        else{
+            console.log(data.location)
+            console.log(data.forecast)
+        }
+       
+    });
+
+});

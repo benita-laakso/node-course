@@ -8,14 +8,14 @@ const geocode = (address,callback)  =>{// In the url i used + addrees + like And
          callback('Unable to connect to location service!',undefined)
        } 
        else if (body.features.length === 0){
-          callback ('Unable to find lokation.Try another serach',undefined)
+          callback ('Unable to find lokation. Try another serach',undefined)
        }
       else{//The first argument is where we would pass in the error, in this case there is none so we pass in undefined
         //The second argument is going to be the data
         //When things go well, when the surch returns resaults,we are going to gett that object sent back as the value for data
         callback(undefined,{
-          latitude: body.features[0].center[1],
-          longitude: body.features[0].center[0],
+          latitude: body.features[0].center[0],/// 0
+          longitude: body.features[0].center[1], //1
           location: body.features[0].place_name 
         })
       }

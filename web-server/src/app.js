@@ -1,9 +1,14 @@
 //path is a built in Core Node Module
 const path = require('path')
+const express = require('express');
 const hbs = require('hbs') //npm pakage,view engine
 
-const express = require('express');
+const geocode = require('./utils/geocode')
+const forecast = require('./utils/forecast')
+
 const { send } = require('process');
+
+
 
 //2 values that node provides
 console.log(__dirname) // A path the directory that the current script lives in
@@ -68,18 +73,38 @@ app.get('/help',(req,res) => {
     })
 })
 
+
+
+//////
 app.get('/weather', (req,res)=>{
-    if(!req.query.adress){
+    if(!req.query.address){
         return res.send({
             error:'Pleas add adress'
         })
     }
-    res.send({
-        forcast:"cloudy",
-        location:"Finland",
-        adress:req.query.adress 
-    })
+    geocode(req.query.address ,(error, { latitude, longitude, location} = {})=>{
+        if(error){
+           return  res.send({error})
+        }
+        forecast(latitude, longitude, (error, forcastData)=>{
+            if(error){
+                return res.send({error})
+            }
+            res.send({
+                forecast :forcastData,
+                location,
+                address:req.query.address 
+            })
+        })
+    })  
 })
+
+
+
+
+
+
+
 
 app.get('/products',(req,res)=>{
     if(!req.query.serch){

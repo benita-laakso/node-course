@@ -10,7 +10,7 @@ const name = "Adam"
 
  const product = {
      label :"Red notebook",
-     stock :200,
+     stock :201,
      price: 20,
      salePrice:undefined,
      rating:10
@@ -23,9 +23,11 @@ const name = "Adam"
 //  console.log(rating)
 //  console.log(productLabel)
 
-const transaction = (type,  {label,stock})=>{
+const transaction = (type,  {label,stock = 0 } = {})=>{   //  = {} Setting default value label to empty object, Setting default value stock to 0
      console.log(type, label,stock)
 
 }
 
 transaction("order", product)
+
+transaction("order")
